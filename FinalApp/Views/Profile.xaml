@@ -7,18 +7,18 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
-            <RowDefinition Height="4*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <Image Grid.RowSpan="4"
                Aspect="AspectFill"
                Source="stadium.png" />
 
-        <acrylic:AcrylicView Grid.Row="1"
-                             Grid.RowSpan="3"
+        <acrylic:AcrylicView Grid.Row="0"
+                             Grid.RowSpan="4"
                              CornerRadius="20"
                              EffectStyle="Custom"
                              VerticalOptions="Center"
@@ -30,8 +30,7 @@
                        HorizontalOptions="Center"
                        HeightRequest="112"
                        WidthRequest="112"
-                       CornerRadius="56"
-                       Grid.Row="2">
+                       CornerRadius="56">
                     <Image Source="user.png" HeightRequest="50" WidthRequest="50" />
                 </Frame>
                 <Label x:Name="UserLabel"
@@ -39,7 +38,6 @@
                        HorizontalOptions="Center"
                        Text="{Binding UserName}"
                        Margin="15"
-                       Grid.Row="3"
                        FontAttributes="Bold"
                        FontSize="20"
                        TextColor="Black" />
@@ -49,7 +47,6 @@
                         Text="SignOut"
                         Command="{Binding SignOutCommand}"
                         Margin="10"
-                        Grid.Row="3"
                         FontAttributes="Bold"
                         FontSize="20"
                         TextColor="#ffffff"
@@ -58,12 +55,11 @@
                         CornerRadius="16" />
 
                 <!-- Toggle Switch for Light/Dark Mode -->
-                <StackLayout Grid.Row="0" VerticalOptions="Start">
+                <StackLayout VerticalOptions="Start">
                     <Label Text="Switch Theme Mode" FontSize="18" FontAttributes="Bold" TextColor="White" />
                     <Switch x:Name="SwitchThemeMode" Toggled="SwitchThemeMode_Toggled"/>
                 </StackLayout>
             </VerticalStackLayout>
         </acrylic:AcrylicView>
     </Grid>
-
 </ContentPage>
