@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalApp.Resources.Styles.LightTheme">
+
+    <Style x:Key="PageStyle" TargetType="Page">
+        <Setter x:Name="PageBackground" Property="Background" Value="#04f5ff"/>
+    </Style>
+
+    <Style x:Key="LabelPrimary" TargetType="Label">
+        <Setter x:Name="TextColorPrimary" Property="TextColor" Value="Black"/>
+    </Style>
+
+    <Color x:Key="PrimaryColor">#04f5ff</Color>
+    <Color x:Key="SecondaryColor">#00ff85</Color>
+</ResourceDictionary>

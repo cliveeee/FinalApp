@@ -1,0 +1,65 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FinalApp.ViewModels"
+             x:Class="FinalApp.Views.Fixtures"
+             Title="Fixtures"
+             Style="{DynamicResource PageStyle}">
+
+    <ContentPage.BindingContext>
+        <viewModels:FixturesViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Spacing="20">
+            <!-- Match Day Navigation -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20">
+                <Button Text="Previous" Command="{Binding DecrementMatchdayCommand}" />
+                <Label Text="{Binding CurrentMatchdayText}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                <Button Text="Next" Command="{Binding IncrementMatchdayCommand}" />
+            </StackLayout>
+
+            <VerticalStackLayout Spacing="20">
+                <CollectionView ItemsSource="{Binding Fixtures}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Outer Frame for Match with Transparent Background -->
+                            <Frame BackgroundColor="Transparent" Margin="0, 0, 0, 15">
+                                <StackLayout>
+                                    <Frame BorderColor="#e90052" CornerRadius="5" Padding="10">
+                                        <!-- Inner Frame for Match -->
+                                        
+                                        <StackLayout Margin="0, 0, 0, 20">
+                                            <!-- Match Day label at the top -->
+                                            <Label Text="{Binding MatchDay}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0, 0, 0, 10" HorizontalTextAlignment="Center" />
+
+                                            <!-- Venue label -->
+                                            <Label Text="{Binding Venue}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0, 0, 0, 10" HorizontalTextAlignment="Center" />
+
+                                            <!-- StackLayout for Team 1 and Team 2 horizontally -->
+                                            <StackLayout Orientation="Horizontal">
+                                                <!-- Team 1 -->
+                                                <StackLayout HorizontalOptions="StartAndExpand" Margin="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Team1Name}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0, 0, 20, 0" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+
+                                                <!-- Frame for Match Time -->
+                                                <Frame VerticalOptions="Center" HeightRequest="50" WidthRequest="80" Padding="0" HasShadow="True" BorderColor="White" CornerRadius="5">
+                                                    <Label Text="{Binding MatchTime}" HorizontalOptions="Fill" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                                </Frame>
+
+                                                <!-- Team 2 -->
+                                                <StackLayout HorizontalOptions="EndAndExpand" Margin="0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Team2Name}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0, 0, 0, 0" HorizontalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FinalApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FinalApp.Views"
+    Shell.NavBarIsVisible="False" Shell.TabBarBackgroundColor="White" Shell.TabBarTitleColor="Black">
+
+
+    <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage" />
+
+    <TabBar>
+        <Tab Title="Home" Icon="home_page.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Home}" Route="Home" />
+        </Tab>
+        <Tab Title="Fixtures" Icon="fixtures_small.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Fixtures}" Route="Fixtures" />
+        </Tab>
+        <Tab Title="Stats" Icon="stats_page.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Stats}" Route="Stats" />
+        </Tab>
+        <Tab Title="Profile" Icon="profile_page.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Profile}" Route="Profile" />
+        </Tab>
+    </TabBar>
+</Shell>
