@@ -14,7 +14,7 @@
             <!-- Match Day Navigation -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20">
                 <Button Text="Previous" Command="{Binding DecrementMatchdayCommand}" />
-                <Label Text="{Binding CurrentMatchdayText}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                <Label Text="{Binding CurrentMatchdayText}" HorizontalOptions="CenterAndExpand" TextColor="#007AFF" FontAttributes="Bold" FontSize="Header" />
                 <Button Text="Next" Command="{Binding IncrementMatchdayCommand}" />
             </StackLayout>
 

@@ -7,23 +7,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Image Grid.RowSpan="4"
-               Aspect="AspectFill"
-               Source="stadium.png" />
-
-        <acrylic:AcrylicView Grid.Row="0"
-                             Grid.RowSpan="4"
-                             CornerRadius="20"
-                             EffectStyle="Custom"
-                             VerticalOptions="Center"
-                             TintColor="#04f5f0"
-                             TintOpacity=".1">
+        <Grid>
+            <Image Grid.ColumnSpan="1"
+                   Aspect="AspectFill"
+                   Source="stadium.png" />
 
             <VerticalStackLayout Padding="35">
                 <Frame VerticalOptions="Center"
@@ -56,10 +46,10 @@
 
                 <!-- Toggle Switch for Light/Dark Mode -->
                 <StackLayout VerticalOptions="Start">
-                    <Label Text="Switch Theme Mode" FontSize="18" FontAttributes="Bold" TextColor="White" />
+                    <Label Text="Switch Theme Mode" FontSize="18" FontAttributes="Bold" TextColor="#ff0000" />
                     <Switch x:Name="SwitchThemeMode" Toggled="SwitchThemeMode_Toggled"/>
                 </StackLayout>
             </VerticalStackLayout>
-        </acrylic:AcrylicView>
+        </Grid>
     </Grid>
 </ContentPage>
