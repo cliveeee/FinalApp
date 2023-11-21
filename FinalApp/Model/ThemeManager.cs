@@ -5,13 +5,13 @@ namespace FinalApp
 {
     public static class ThemeManager
     {
-        private const string ThemePreferenceKey = "ThemePreference";
+        // private const string ThemePreferenceKey = "ThemePreference";
 
         public static void LoadThemePreference()
         {
-            if (Preferences.ContainsKey(ThemePreferenceKey))
+            if (Preferences.ContainsKey("ThemePreferenceKey"))
             {
-                bool isDarkMode = Preferences.Get(ThemePreferenceKey, false);
+                bool isDarkMode = Preferences.Get("ThemePreferenceKey", false);
                 ApplyTheme(isDarkMode);
             }
         }
@@ -21,7 +21,7 @@ namespace FinalApp
             ApplyTheme(isDarkMode);
 
             // Save the theme preference
-            Preferences.Set(ThemePreferenceKey, isDarkMode);
+            Preferences.Set("ThemePreferenceKey", isDarkMode);
         }
 
         private static void ApplyTheme(bool isDarkMode)
@@ -39,5 +39,7 @@ namespace FinalApp
                 Application.Current.Resources.MergedDictionaries.Add(new LightTheme());
             }
         }
+
+        
     }
 }
