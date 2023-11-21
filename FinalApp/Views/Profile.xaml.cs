@@ -1,45 +1,36 @@
 ﻿using FinalApp.ViewModel;
-using FinalApp.Resources.Styles;
-using Xe.AcrylicView;
+using System.Diagnostics;
 
-namespace FinalApp.Views;
-
-public partial class Profile : ContentPage
+namespace FinalApp.Views
 {
-	public Profile()
-	{
-		InitializeComponent();
-        BindingContext = new ProfileViewModel();
-        UpdateLayoutForOrientation();
-    }
-
-	private void SwitchThemeMode_Toggled(object sender, ToggledEventArgs e)
-	{
-        Application.Current.Resources.MergedDictionaries.Clear();
-        if (e.Value)
-		{
-			//DarkMode
-			Application.Current.Resources.MergedDictionaries.Add(new DarkTheme());
-		}
-		else
-		{
-            //LightMode
-            Application.Current.Resources.MergedDictionaries.Add(new LightTheme());
-        }
-	}
-
-    private void UpdateLayoutForOrientation()
+    public partial class Profile : ContentPage
     {
-        if (Width > Height) // Landscape
+        public Profile()
         {
-            WidthRequest = 200;
-           
+            InitializeComponent();
+            BindingContext = new ProfileViewModel();
+            UpdateLayoutForOrientation();
+            ThemeManager.LoadThemePreference(); 
         }
-        else // Portrait
+
+        private void SwitchThemeMode_Toggled(object sender, ToggledEventArgs e)
         {
-            WidthRequest = double.NaN; 
-                                                   
+            ThemeManager.SwitchTheme(e.Value);
+            Debug.WriteLine($"Theme preference saved: {e.Value}");
+        }
+
+        private void UpdateLayoutForOrientation()
+        {
+            // Landscape
+            if (Width > Height) 
+            {
+                WidthRequest = 200;
+            }
+            // Portrait
+            else
+            {
+                WidthRequest = double.NaN;
+            }
         }
     }
-
 }
